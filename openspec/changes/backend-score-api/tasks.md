@@ -4,7 +4,7 @@ Each task is one Conventional Commit (planned subject in backticks).
 
 ## 1. Workspace setup
 
-- [ ] 1.1 Move `src/`, `tsconfig*.json` and `vitest.config.ts` into `backend/` with its own `package.json`; make the root a workspaces root whose `build`/`typecheck`/`test` delegate to workspaces; update ESLint paths. Verify lint, format:check, typecheck, test and build pass from the root — `refactor: move backend into an npm workspace`
+- [x] 1.1 Move `src/`, `tsconfig*.json` and `vitest.config.ts` into `backend/` with its own `package.json`; make the root a workspaces root whose `build`/`typecheck`/`test` delegate to workspaces; update ESLint paths. Verify lint, format:check, typecheck, test and build pass from the root — `refactor: move backend into an npm workspace`
 - [ ] 1.2 Move backend-only dev dependencies (`vitest`, `@vitest/coverage-v8`, `@types/node`) to `backend/package.json`. Verify `npm ci` and `npm test` pass — `build(backend): declare backend-only dev dependencies`
 - [ ] 1.3 Add Express app with `GET /health`, server entrypoint and `dev` script (tsx watch). Verify `npm run dev` answers `200` on `/health` — `feat(backend): add Express app with health check`
 - [ ] 1.4 Load `PORT` and `JWT_SECRET` from the environment with `.env.example`, failing fast when the secret is missing outside development. Verify startup with and without the variables — `feat(backend): load configuration from environment`
