@@ -44,6 +44,20 @@ describe('GET /score/:rut', () => {
     expect((await getScore('12.345.678-9', token)).status).toBe(400);
   });
 
+  it('lets a user query their own RUT in any notation', async () => {
+    const token = await loginAs('user', 'user123');
+
+    expect((await getScore('123456785', token)).status).toBe(200);
+  });
+
+  it('responds 403 when a user queries another RUT', async () => {
+    const token = await loginAs('user', 'user123');
+    const response = await getScore('10.000.013-K', token);
+
+    expect(response.status).toBe(403);
+    expect(response.body).toMatchObject({ error: { code: 'FORBIDDEN' } });
+  });
+
   it('responds 401 without a token', async () => {
     const response = await request(app).get('/score/12.345.678-5');
 
