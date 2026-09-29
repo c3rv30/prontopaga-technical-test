@@ -11,7 +11,7 @@ Each task is one Conventional Commit (planned subject in backticks).
 ## 2. Features
 
 - [x] 2.1 Typed API client with `ApiError` and session storage helpers, plus one unit test for error mapping. Verify `npm test` — `feat(frontend): add API client and session storage`
-- [ ] 2.2 Login view with error message on `401`. Verify login in the browser — `feat(frontend): add login view`
+- [x] 2.2 Login view with error message on `401`. Verify login in the browser — `feat(frontend): add login view`
 - [ ] 2.3 Score view (prefilled RUT for users, result card, `400`/`403` messages, `401` → back to login, logout). Verify each scenario in the browser — `feat(frontend): add score lookup view`
 - [ ] 2.4 Responsive styles. Verify on a narrow viewport — `style(frontend): add responsive layout`
 
