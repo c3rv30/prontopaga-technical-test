@@ -13,3 +13,21 @@ describe('GET /health', () => {
     expect(response.body).toEqual({ status: 'ok' });
   });
 });
+
+describe('CORS', () => {
+  it('allows only the configured SPA origin', async () => {
+    const allowed = await request(app)
+      .get('/health')
+      .set('Origin', 'http://localhost:5173');
+    const other = await request(app)
+      .get('/health')
+      .set('Origin', 'https://evil.example');
+
+    expect(allowed.headers['access-control-allow-origin']).toBe(
+      'http://localhost:5173',
+    );
+    expect(other.headers['access-control-allow-origin']).not.toBe(
+      'https://evil.example',
+    );
+  });
+});

@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express, { type Express } from 'express';
 import type { Config } from './config.js';
 import { createAuthenticate } from './middlewares/authenticate.js';
@@ -20,6 +21,7 @@ export function createApp(config: Config): Express {
   const app = express();
 
   app.disable('x-powered-by');
+  app.use(cors({ origin: config.corsOrigin }));
   app.use(express.json());
 
   app.get('/health', (_req, res) => {

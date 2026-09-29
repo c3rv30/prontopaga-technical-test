@@ -8,12 +8,14 @@ const envSchema = z.object({
     .default('development'),
   PORT: z.coerce.number().int().positive().default(3000),
   JWT_SECRET: z.string().min(32).optional(),
+  CORS_ORIGIN: z.url().default('http://localhost:5173'),
 });
 
 export interface Config {
   nodeEnv: 'development' | 'test' | 'production';
   port: number;
   jwtSecret: string;
+  corsOrigin: string;
 }
 
 export function loadConfig(env: NodeJS.ProcessEnv): Config {
@@ -24,7 +26,7 @@ export function loadConfig(env: NodeJS.ProcessEnv): Config {
     );
   }
 
-  const { NODE_ENV, PORT, JWT_SECRET } = result.data;
+  const { NODE_ENV, PORT, JWT_SECRET, CORS_ORIGIN } = result.data;
   if (NODE_ENV === 'production' && !JWT_SECRET) {
     throw new Error('JWT_SECRET is required in production');
   }
@@ -33,5 +35,6 @@ export function loadConfig(env: NodeJS.ProcessEnv): Config {
     nodeEnv: NODE_ENV,
     port: PORT,
     jwtSecret: JWT_SECRET ?? DEV_JWT_SECRET,
+    corsOrigin: CORS_ORIGIN,
   };
 }
