@@ -12,7 +12,9 @@ export default tseslint.config(
     languageOptions: {
       globals: globals.node,
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['vitest.config.ts'],
+        },
         tsconfigRootDir: import.meta.dirname,
       },
     },
