@@ -26,4 +26,4 @@ Each task is one Conventional Commit (planned subject in backticks).
 - [x] 4.1 Protected `GET /score/:rut` returning `{ rut, score, fecha }`, `400` on invalid RUT. Verify with supertest — `feat(backend): add GET /score/:rut endpoint`
 - [x] 4.2 Role-based authorization: `user` own RUT only (`403` otherwise), `admin` any RUT. Verify with supertest — `feat(backend): restrict score access by role`
 - [x] 4.3 Enable CORS for the SPA origin (`CORS_ORIGIN`, dev default). Verify preflight response headers — `feat(backend): enable CORS for the SPA origin`
-- [ ] 4.4 README backend section: run commands, env vars, mock credentials, RUT check-digit note. Verify the commands work from a clean `npm install` — `docs: document backend setup and usage`
+- [x] 4.4 README backend section: run commands, env vars, mock credentials, RUT check-digit note. Verify the commands work from a clean `npm install` — `docs: document backend setup and usage`
