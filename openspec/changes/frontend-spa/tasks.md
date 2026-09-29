@@ -4,7 +4,7 @@ Each task is one Conventional Commit (planned subject in backticks).
 
 ## 1. Setup
 
-- [ ] 1.1 Scaffold Vite + React + TS in `frontend/`, remove boilerplate, register the workspace. Verify `npm run build` and `npm run typecheck` pass from the root — `feat(frontend): scaffold Vite React app`
+- [x] 1.1 Scaffold Vite + React + TS in `frontend/`, remove boilerplate, register the workspace. Verify `npm run build` and `npm run typecheck` pass from the root — `feat(frontend): scaffold Vite React app`
 - [ ] 1.2 Extend ESLint for React (hooks, refresh) and browser globals in `frontend/`. Verify `npm run lint` passes — `chore(frontend): lint React code`
 - [ ] 1.3 Run backend and frontend in parallel from the root `dev` script with `concurrently`. Verify both start with `npm run dev` — `build: run backend and frontend together in dev`
 
