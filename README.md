@@ -82,4 +82,4 @@ Run from the repository root:
 
 ### Architecture
 
-Express 5 + TypeScript in an npm workspace (`backend/`). It applies Clean Architecture principles in a lightweight form: a pure `domain/` (RUT, score, errors), thin routes that delegate to services, a single `UserRepository` port, and manual dependency injection in `createApp(config)`. Decisions and trade-offs are documented in [`openspec/changes/backend-score-api/design.md`](openspec/changes/backend-score-api/design.md).
+Express 5 + TypeScript in an npm workspace (`backend/`). It applies Clean Architecture principles in a lightweight form: a pure `domain/` (RUT, score, errors), thin routes that delegate to services, a single `UserRepository` port, and manual dependency injection in `createApp(config)`. Decisions and trade-offs are documented in [`openspec/changes/archive/2026-09-29-backend-score-api/design.md`](openspec/changes/archive/2026-09-29-backend-score-api/design.md).
