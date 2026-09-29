@@ -8,6 +8,7 @@
     "backend"
   ],
   "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
     "build": "npm run build --workspaces --if-present",
     "lint": "eslint .",
     "format": "prettier --write .",

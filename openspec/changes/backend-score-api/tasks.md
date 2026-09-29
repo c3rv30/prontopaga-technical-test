@@ -6,12 +6,12 @@ Each task is one Conventional Commit (planned subject in backticks).
 
 - [x] 1.1 Move `src/`, `tsconfig*.json` and `vitest.config.ts` into `backend/` with its own `package.json`; make the root a workspaces root whose `build`/`typecheck`/`test` delegate to workspaces; update ESLint paths. Verify lint, format:check, typecheck, test and build pass from the root — `refactor: move backend into an npm workspace`
 - [x] 1.2 Move backend-only dev dependencies (`vitest`, `@vitest/coverage-v8`, `@types/node`) to `backend/package.json`. Verify `npm ci` and `npm test` pass — `build(backend): declare backend-only dev dependencies`
-- [ ] 1.3 Add Express app with `GET /health`, server entrypoint and `dev` script (tsx watch). Verify `npm run dev` answers `200` on `/health` — `feat(backend): add Express app with health check`
+- [x] 1.3 Add Express app with `GET /health`, server entrypoint and `dev` script (tsx watch), plus supertest and the first test; remove `passWithNoTests`. Verify the `/health` supertest passes and `npm run dev` answers `200` — `feat(backend): add Express app with health check`
 - [ ] 1.4 Load `PORT` and `JWT_SECRET` from the environment with `.env.example`, failing fast when the secret is missing outside development. Verify startup with and without the variables — `feat(backend): load configuration from environment`
 
 ## 2. Domain helpers
 
-- [ ] 2.1 RUT normalize / check-digit validation / format with unit tests (dotted, plain, `K`, invalid digit); remove `passWithNoTests`. Verify `npm test` — `feat(backend): add RUT validation and formatting`
+- [ ] 2.1 RUT normalize / check-digit validation / format with unit tests (dotted, plain, `K`, invalid digit). Verify `npm test` — `feat(backend): add RUT validation and formatting`
 - [ ] 2.2 Deterministic score function with unit tests (0–100, stable, format-independent). Verify `npm test` — `feat(backend): add deterministic score calculation`
 
 ## 3. Auth
