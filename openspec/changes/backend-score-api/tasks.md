@@ -18,7 +18,7 @@ Each task is one Conventional Commit (planned subject in backticks).
 
 - [x] 3.1 Typed app errors, error middleware and 404 handler producing `{ error: { code, message } }`. Verify with a supertest case for an unknown route — `feat(backend): add centralized error handling`
 - [x] 3.2 Mock users and timing-safe credential check with unit tests. Verify `npm test` — `feat(backend): add mock users and credential check`
-- [ ] 3.3 `POST /login` with zod body validation returning a signed JWT. Verify with supertest: user payload with `rut`, admin payload without `rut`, `401`, `400` — `feat(backend): add POST /login endpoint`
+- [x] 3.3 `POST /login` with zod body validation returning a signed JWT. Verify with supertest: user payload with `rut`, admin payload without `rut`, `401`, `400` — `feat(backend): add POST /login endpoint`
 - [ ] 3.4 Authentication middleware (Bearer, signature, expiration, pinned algorithm). Verify `401` for missing, tampered and expired tokens — `feat(backend): add JWT authentication middleware`
 
 ## 4. Score

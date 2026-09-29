@@ -1,8 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { AuthService } from './auth.service.js';
+import { TokenService } from './token.service.js';
 import { InMemoryUserRepository } from './user.repository.js';
 
-const authService = new AuthService(new InMemoryUserRepository());
+const authService = new AuthService(
+  new InMemoryUserRepository(),
+  new TokenService('test-secret-with-at-least-32-characters'),
+);
 
 describe('AuthService.verifyCredentials', () => {
   it('returns the user for valid credentials', async () => {
