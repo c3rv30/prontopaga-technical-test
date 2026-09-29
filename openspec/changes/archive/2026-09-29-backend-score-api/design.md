@@ -38,8 +38,8 @@ Repo currently has a single TypeScript package at the root (ESM, strict, ESLint,
 - **Express 5**: widely known, minimal, native async error handling. Fastify was considered; Express keeps the MVP simpler to read.
 - **`jsonwebtoken` with HS256**: symmetric secret is enough for a single service. Secret from `JWT_SECRET`, expiration `1h`; verification pins `algorithms: ['HS256']`.
 - **`zod` for input validation**: typed parsing of the login body and the `:rut` param.
-- **Mock users in code**: an `admin` and a `user` (with a valid RUT). No bcrypt (overkill with no persistence); passwords are compared with `crypto.timingSafeEqual` over SHA-256 digests to avoid timing leaks. Credentials documented in the README.
-- **RUT**: normalize (strip dots/dash, uppercase `K`), validate module-11 check digit, format as `12.345.678-5`. Authorization compares normalized RUTs.
+- **Mock users in code**: an `admin` and a `user` (with a valid RUT). Only scrypt hashes live in source (Node's built-in `node:crypto`, salted, memory-hard; preferred over bcrypt, which needs a native package and truncates at 72 bytes). Verification uses `timingSafeEqual`, and unknown usernames are checked against a dummy hash so they cannot be told apart by timing. Plain-text credentials only appear in the README.
+- **RUT**: normalize (strip dots/dash, uppercase `K`), validate modulo 11 check digit, format as `12.345.678-5`. Authorization compares normalized RUTs.
 - **Score**: `SHA-256(normalizedRut)` → first 4 bytes as uint32 → `% 101`. Deterministic, uniform enough, no state.
 - **Status codes**: `400` validation, `401` authn (missing/invalid/expired token, bad credentials), `403` authz, `404` unknown route, `500` unexpected (no internals leaked).
 - **CORS** enabled for the SPA origin (configurable via env, dev default).
@@ -47,6 +47,6 @@ Repo currently has a single TypeScript package at the root (ESM, strict, ESLint,
 
 ## Risks / Trade-offs
 
-- [Mock credentials in source] → acceptable for an MVP with no persistence; clearly flagged in README.
+- [Mock users hard-coded in source] → acceptable for an MVP with no persistence; only hashes are stored and the `UserRepository` port allows swapping in a database.
 - [Hash `% 101` can collide] → spec only requires determinism and variation, not uniqueness.
 - [Default dev `JWT_SECRET`] → `.env.example` + fail fast in non-dev if missing.
