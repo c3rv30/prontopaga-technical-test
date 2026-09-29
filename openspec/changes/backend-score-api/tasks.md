@@ -11,7 +11,7 @@ Each task is one Conventional Commit (planned subject in backticks).
 
 ## 2. Domain helpers
 
-- [ ] 2.1 RUT normalize / check-digit validation / format with unit tests (dotted, plain, `K`, invalid digit). Verify `npm test` — `feat(backend): add RUT validation and formatting`
+- [x] 2.1 RUT normalize / check-digit validation / format with unit tests (dotted, plain, `K`, invalid digit). Verify `npm test` — `feat(backend): add RUT validation and formatting`
 - [ ] 2.2 Deterministic score function with unit tests (0–100, stable, format-independent). Verify `npm test` — `feat(backend): add deterministic score calculation`
 
 ## 3. Auth

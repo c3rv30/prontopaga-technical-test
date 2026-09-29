@@ -39,7 +39,7 @@ Repo currently has a single TypeScript package at the root (ESM, strict, ESLint,
 - **`jsonwebtoken` with HS256**: symmetric secret is enough for a single service. Secret from `JWT_SECRET`, expiration `1h`; verification pins `algorithms: ['HS256']`.
 - **`zod` for input validation**: typed parsing of the login body and the `:rut` param.
 - **Mock users in code**: an `admin` and a `user` (with a valid RUT). No bcrypt (overkill with no persistence); passwords are compared with `crypto.timingSafeEqual` over SHA-256 digests to avoid timing leaks. Credentials documented in the README.
-- **RUT**: normalize (strip dots/dash, uppercase `K`), validate module-11 check digit, format as `12.345.678-5`. Authorization compares normalized RUTs.
+- **RUT**: normalize (strip dots/dash, uppercase `K`), validate modulo 11 check digit, format as `12.345.678-5`. Authorization compares normalized RUTs.
 - **Score**: `SHA-256(normalizedRut)` → first 4 bytes as uint32 → `% 101`. Deterministic, uniform enough, no state.
 - **Status codes**: `400` validation, `401` authn (missing/invalid/expired token, bad credentials), `403` authz, `404` unknown route, `500` unexpected (no internals leaked).
 - **CORS** enabled for the SPA origin (configurable via env, dev default).
