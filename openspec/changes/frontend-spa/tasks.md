@@ -17,4 +17,4 @@ Each task is one Conventional Commit (planned subject in backticks).
 
 ## 3. Docs
 
-- [ ] 3.1 README frontend section (URL, env var, usage). Verify the documented commands — `docs: document frontend usage`
+- [x] 3.1 README frontend section (URL, env var, usage). Verify the documented commands — `docs: document frontend usage`
