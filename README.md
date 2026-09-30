@@ -104,3 +104,7 @@ The session is kept in `sessionStorage`, so it lasts until the tab is closed or 
 | Variable       | Default                 | Notes                                                 |
 | -------------- | ----------------------- | ----------------------------------------------------- |
 | `VITE_API_URL` | `http://localhost:3000` | Backend base URL; set it in `frontend/.env` if needed |
+
+## AI usage
+
+This project was built with Claude Code and OpenSpec; the frontend is fully AI-generated. See [`ai_interactions.md`](ai_interactions.md) for the tools, workflow and what each one generated.
